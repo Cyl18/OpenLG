@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OpenLG
 {
-    public class BitmapFactory
+    public static class BitmapFactory
     {
         public static Bitmap Create(Size size)
         {

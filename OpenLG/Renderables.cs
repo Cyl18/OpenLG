@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OpenLG
 {
-    public class Renderables
+    public static class Renderables
     {
         public static Font TextFont { get; set; } = new Font("Microsoft YaHei", 24);
         public static Color Color { get; set; } = Color.White;
@@ -38,7 +38,7 @@ namespace OpenLG
         public Image Render()
         {
             var size = EmptyGraphics.MeasureString(Text, Font).ToSize();
-            var image = BitmapFactory.Create(size).AddToDisposeList();
+            var image = BitmapFactory.Create(size);
             using (var graphics = Graphics.FromImage(image))
             {
                 graphics.DrawString(Text, Font, new SolidBrush(Color), new PointF(0, 0));

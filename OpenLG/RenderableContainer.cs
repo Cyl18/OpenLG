@@ -47,9 +47,13 @@ namespace OpenLG
                         yield return new RenderInfo(element, obj.attribute);
                     }
                 }
-                else
+                else if (obj.obj is IRenderable)
                 {
                     yield return new RenderInfo((IRenderable)obj.obj, obj.attribute);
+                }
+                else
+                {
+                    throw new NotSupportedException("LG 害人不浅");
                 }
             }
         }
