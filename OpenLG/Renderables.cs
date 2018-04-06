@@ -38,7 +38,7 @@ namespace OpenLG
         public Image Render()
         {
             var size = EmptyGraphics.MeasureString(Text, Font).ToSize();
-            var image = BitmapFactory.Create(size);
+            var image = BitmapFactory.Create(size).AddToDisposeList();
             using (var graphics = Graphics.FromImage(image))
             {
                 graphics.DrawString(Text, Font, new SolidBrush(Color), new PointF(0, 0));
