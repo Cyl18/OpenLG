@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
 namespace OpenLG
@@ -15,6 +13,8 @@ namespace OpenLG
         {
             DisposeThread.Start();
         }
+
+        public static ConcurrentQueue<DisposeInfo> DisposeQueue { get; } = new ConcurrentQueue<DisposeInfo>();
 
         private static void Dispose()
         {
@@ -39,8 +39,6 @@ namespace OpenLG
             });
             return disposable;
         }
-
-        public static ConcurrentQueue<DisposeInfo> DisposeQueue { get; } = new ConcurrentQueue<DisposeInfo>();
     }
 
     public static class QueueExtensions

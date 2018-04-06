@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Text;
 
 namespace OpenLG
 {
@@ -47,6 +44,7 @@ namespace OpenLG
                 graphics.FillRegion(brush, new Region(new Rectangle(point, image.Size)));
                 graphics.DrawImage(image, point);
             }
+
             return dest;
         }
     }

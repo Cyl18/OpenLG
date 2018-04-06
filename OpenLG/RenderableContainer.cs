@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace OpenLG
 {
@@ -39,23 +37,13 @@ namespace OpenLG
             foreach (var obj in typeof(T).GetProperties()
                 .Where(p => p.GetCustomAttribute<MarginAttribute>() != null)
                 .Select(p => new { obj = p.GetValue(instance), attribute = p.GetCustomAttribute<MarginAttribute>() }))
-            {
                 if (obj.obj is ICollection<IRenderable> collection)
-                {
                     foreach (var element in collection)
-                    {
                         yield return new RenderInfo(element, obj.attribute);
-                    }
-                }
                 else if (obj.obj is IRenderable)
-                {
                     yield return new RenderInfo((IRenderable)obj.obj, obj.attribute);
-                }
                 else
-                {
                     throw new NotSupportedException("LG 害人不浅");
-                }
-            }
         }
     }
 
@@ -73,11 +61,6 @@ namespace OpenLG
 
     public class Margin
     {
-        public int Top { get; set; }
-        public int Bottom { get; set; }
-        public int Left { get; set; }
-        public int Right { get; set; }
-
         public Margin(int top, int bottom, int left, int right)
         {
             Top = top;
@@ -93,5 +76,10 @@ namespace OpenLG
             Left = leftright;
             Right = leftright;
         }
+
+        public int Top { get; set; }
+        public int Bottom { get; set; }
+        public int Left { get; set; }
+        public int Right { get; set; }
     }
 }

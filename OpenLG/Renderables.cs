@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
+﻿using System.Drawing;
 
 namespace OpenLG
 {
@@ -35,6 +32,17 @@ namespace OpenLG
     {
         private static readonly Graphics EmptyGraphics = Graphics.FromImage(new Bitmap(1, 1));
 
+        public RenderableText(string text, Color? color = null, Font font = null)
+        {
+            Font = font ?? Renderables.TextFont;
+            Color = color ?? Renderables.Color;
+            Text = text;
+        }
+
+        public Font Font { get; }
+        public Color Color { get; }
+        public string Text { get; }
+
         public Image Render()
         {
             var size = EmptyGraphics.MeasureString(Text, Font).ToSize();
@@ -46,17 +54,6 @@ namespace OpenLG
 
             return image;
         }
-
-        public RenderableText(string text, Color? color = null, Font font = null)
-        {
-            Font = font ?? Renderables.TextFont;
-            Color = color ?? Renderables.Color;
-            Text = text;
-        }
-
-        public Font Font { get; }
-        public Color Color { get; }
-        public string Text { get; }
 
         public static implicit operator RenderableText(string text)
         {

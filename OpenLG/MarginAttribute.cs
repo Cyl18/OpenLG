@@ -5,8 +5,6 @@ namespace OpenLG
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class MarginAttribute : Attribute
     {
-        public Margin Margin { get; }
-
         public MarginAttribute(int top, int bottom, int left, int right)
         {
             Margin = new Margin(top, bottom, left, right);
@@ -16,5 +14,7 @@ namespace OpenLG
         {
             Margin = new Margin(topbottom, leftright);
         }
+
+        public Margin Margin { get; }
     }
 }

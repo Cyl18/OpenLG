@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 
 namespace OpenLG
 {
     public class Renderer
     {
-        public IEnumerable<RenderInfo> Infos { get; }
-        public RenderOption Option { get; set; }
         private Point _point = Point.Empty;
 
         public Renderer(IEnumerable<RenderInfo> children)
         {
-            this.Infos = children;
+            Infos = children;
         }
+
+        public IEnumerable<RenderInfo> Infos { get; }
+        public RenderOption Option { get; set; }
 
         public Image Render()
         {
@@ -78,6 +78,7 @@ namespace OpenLG
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
             return new Size(width, height);
         }
 
@@ -96,7 +97,7 @@ namespace OpenLG
 
     public enum RenderOption
     {
-        Horizontal,// xxx
+        Horizontal, // xxx
         Vertical // x\nx
     }
 }
