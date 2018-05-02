@@ -4,7 +4,7 @@ Just a C# graphics library using System.Drawing.Common.
 
 ## What is LG?
 
-This guy [Lasm_Gratel](https://github.com/LasmGratel)
+This guy [Lasm_Gratel](https://github.com/NanamiArihara)
 
 ## Usage
 
